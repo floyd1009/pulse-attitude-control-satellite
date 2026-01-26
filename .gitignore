@@ -205,3 +205,53 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# MATLAB
+*.asv
+*.m~
+*.mex*
+*.mat
+slprj/
+*.autosave
+*.slxc
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+ENV/
+.pytest_cache/
+*.ipynb_checkpoints
+
+# STM32 / Embedded
+*.o
+*.d
+*.elf
+*.bin
+*.hex
+*.map
+*.lst
+Debug/
+Release/
+build/
+
+# Data files (large experimental data)
+*.csv
+*.dat
+*.hdf5
+data/helmholtz/*.csv
+data/thermal/*.csv
+!data/**/README.md
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
