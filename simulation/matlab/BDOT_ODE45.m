@@ -15,7 +15,7 @@ invI = inv(I);                 % Inverse inertia
 k = 5e3;                       % Reduced control gain for slower damping, more oscillation cycles
 B_inertial = 2e-5 * [1; 0; 1] / sqrt(2);  % Constant inertial magnetic field [T]
 
-% Initial condins (adjusted so that H · B = 0 for full damping to zero)
+% Initial conditions (adjusted so that H · B = 0 for full damping to zero)
 % omega_z = - (I_x / I_z) * omega_x , with omega_x=10 deg/s, omega_y=5 deg/s
 omega_x_deg = 10;
 omega_y_deg = 5;
@@ -38,7 +38,7 @@ q = states(:, 4:7);              % Quaternions (not used further here)
 % Compute norm of angular momentum H = ||I * omega||
 H_norm = zeros(length(t), 1);
 for i = 1:length(t)
-    H_norm(i) = norm(I * omega(i, :)', 'fro');  % Nor of H vector
+    H_norm(i) = norm(I * omega(i, :)');  % Norm of H vector
 end
 
 %% Plots
@@ -106,6 +106,6 @@ function dcm = quat_to_dcm(q)
     % Assumes q = [w; x; y; z], normalized
     w = q(1); x = q(2); y = q(3); z = q(4);
     dcm = [w^2 + x^2 - y^2 - z^2, 2*(x*y + w*z), 2*(x*z - w*y);
-           2*(x*y - w*z), w^2 - x^2 + y^2 - z^2, 2*(y*z +);
+           2*(x*y - w*z), w^2 - x^2 + y^2 - z^2, 2*(y*z + w*x);
            2*(x*z + w*y), 2*(y*z - w*x), w^2 - x^2 - y^2 + z^2];
 end
