@@ -15,8 +15,8 @@ settling_threshold = 0.01; % rad/s (~0.57 deg/s)
 
 for i = 1:N_mc
     % Randomize parameters
-    k = k_mean * (1 + 0.1*(rand - 0.5)); % +/-10% variation
-    B_mag_rand = B_mag_mean * (1 + 0.1*(rand - 0.5)); % +/-10% variation
+    k = k_mean * (1 + 0.2*(rand - 0.5)); % +/-10% variation
+    B_mag_rand = B_mag_mean * (1 + 0.2*(rand - 0.5)); % +/-10% variation
     B_inertial = B_mag_rand * randn(3,1); % Random direction, norm ~ B_mag_rand (use randn for variety)
     B_inertial = B_inertial / norm(B_inertial) * B_mag_rand; % Normalize to exact magnitude
     
@@ -118,5 +118,5 @@ function dcm = quat_to_dcm(q)
     w = q(1); x = q(2); y = q(3); z = q(4);
     dcm = [w^2 + x^2 - y^2 - z^2, 2*(x*y + w*z), 2*(x*z - w*y);
            2*(x*y - w*z), w^2 - x^2 + y^2 - z^2, 2*(y*z + w*x);
-           2*(x*z + w*y), 2*(y*z - w*x), w^2 - x^2 - y^2^2];
+           2*(x*z + w*y), 2*(y*z - w*x), w^2 - x^2 - y^2 + z^2];
 end
