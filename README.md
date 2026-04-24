@@ -7,7 +7,7 @@
 
 ## Overview
 
-This repository contains the complete implementation and validation of adaptive magnetic attitude determination and control algorithms for the PULSE PocketQube satellite. The thesis advances small satellite ADCS from simulation (TRL 3-4) to flight-ready validation (TRL 6-7) through extensive hardware-in-loop testing.
+This repository contains the complete implementation and validation of adaptive magnetic attitude determination and control algorithms for the PULSE PocketQube satellite. It advances small satellite ADCS from simulation (TRL 3-4) to flight-ready validation (TRL 6-7) through extensive hardware-in-loop testing.
 
 
 
