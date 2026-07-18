@@ -31,7 +31,7 @@ Validated ADCS simulation codes from PULSE PocketQube project.
 - Full 6-DOF dynamics (angular velocity + quaternion kinematics)
 
 **Parameters:**
-- Inertia: I = d 2e-4, 5e-4]) kg·m²
+- Inertia: I = diag([1e-4, 2e-4, 5e-4]) kg·m²
 - Control gain: k = 5e3
 - Magnetic field: 2e-5 T constant (LEO-representative)
 
@@ -82,7 +82,7 @@ monte_carlo
 
 ## Validation Status
 
-✅ **Physics valgular momentum conservation verified  
+✅ **Physics validated:** angular momentum conservation verified  
 ✅ **Control validated:** B-dot detumbling successful  
 ✅ **Robustness validated:** 50/50 Monte Carlo scenarios converge  
 
