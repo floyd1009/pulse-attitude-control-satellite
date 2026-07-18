@@ -1,83 +1,31 @@
-# PULSE ADCS Thesis: Adaptive Magnetic Attitude Control
+# PULSE ADCS — B-dot Detumbling Simulation
 
-**Hardware-Validated Algorithms for Autonomous Maneuver Execution**
+MATLAB simulation environment for the magnetic attitude control (detumbling) of TU Berlin's **PULSE 3P PocketQube** satellite.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Status: Active Development](https://img.shields.io/badge/Status-Active%20Development-green.svg)]()
 
-## Overview
+## What's here
 
-This repository contains the complete implementation and validation of adaptive magnetic attitude determination and control algorithms for the PULSE PocketQube satellite. The thesis advances small satellite ADCS from simulation (TRL 3-4) to flight-ready validation (TRL 6-7) through extensive hardware-in-loop testing.
+| File | Purpose |
+|---|---|
+| `simulation/matlab/free_tumbling_final.m` | Rigid-body tumbling dynamics of the 3P PocketQube |
+| `simulation/matlab/BDOT_ODE45.m` | Closed-loop B-dot detumbling with magnetorquer actuation (ODE45) |
+| `simulation/matlab/monte_carlo.m` | Monte Carlo dispersion analysis over initial tumble rates |
 
-**Author:** Floyd D'Souza  
-**Institution:** TU Berlin  
-**Supervisor:** Prof. Cem  
-**Timeline:** February - October 2026  
-**Defense:** October 2, 2026
+## Context
 
-## Research Objectives
+Developed as part of the ADCS work for the PULSE PocketQube at TU Berlin. This repository contains the simulation side of that work: the tumbling dynamics, the B-dot control law, and the dispersion analysis used to size the detumbling performance.
 
-- Develop Extended Kalman Filter for attitude estimation with magnetic field error correction
-- Implement adaptive B-dot controller with real-time gain scheduling
-- Validate through 50+ test scenarios in Helmholtz cage and thermal vacuum chamber
-- Characterize commercial ADCS sensor performance across operational thermal range
-- Demonstrate algorithm transferability to reusable rocket GNC applications
+The flight firmware (C, STM32) and the hardware-in-the-loop test campaign were developed within the PULSE team and live in the team's repository. Results are available on request.
 
-## Repository Structure
-```
-pulse-adcs-thesis/
-├── simulation/           # Algorithm development and validation
-│   ├── matlab/          # MATLAB/Simulink models
-│   ├── python/          # Python analysis scripts
-│   └── results/         # Simulation outputs
-├── firmware/            # Embedded implementation
-│   ├── stm32/          # STM32 flight code
-│   └── tests/          # Unit tests
-├── hardware/            # Hardware integration
-│   ├── testbed/        # HIL setup documentation
-│   └── calibration/    # Sensor calibration procedures
-├── data/                # Experimental results
-│   ├── helmholtz/      # Helmholtz cage test data
-│   ├── thermal/        # Utilities
-│   ├── data-processing/
-│   └── visualization/
-└── docs/                # Documentation
-    ├── thesis/         # LaTeX thesis source
-    ├── presentations/  # Meeting slides
-    └── datasheets/     # Hardware specifications
-```
+## Requirements
 
-## Development Phases
-
-### Phase 1: Remote Algorithm Development (Feb-May 2026)
-- Extended Kalman Filter implementation
-- Adaptive B-dot controller
-- Software-in-loop validation
-- Monte Carlo simulation campaign
-
-### Phase 2: Hardware Validation (May-Aug 2026)
-- Helmholtz cage integration and testing
-- Thermal vacuum chamber characterization
-- Performance metrics compilation
-- Results analysis and documentation
-
-## Key Technologies
-
-- **Control Algorithms:** EKF, Adaptive B-dot, PID
-- **Hardware:** STM32F4, BNO055 IMU, Custom magnetorquers
-- **Testing:** 3-axis Helmholtz cage, Thermal vacuum chamber
-- **Languages:** MATLAB/Simulink, C/C++, Python
-- **Version Control:** Git with GitFlow methodology
+MATLAB R2023b or later.
 
 ## License
 
-MIT License -.
+MIT
 
 ## Contact
 
-**Floyd D'Souza**  
-GitHub: [@floyd1009](https://github.com/floyd1009)
-
----
-
-**Status:** Active development (Feb-Oct 2026)
+**Floyd D'Souza** — [@floyd1009](https://github.com/floyd1009)

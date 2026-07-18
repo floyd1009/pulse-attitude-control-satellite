@@ -15,7 +15,7 @@
 %    - |H| = constant (magnitude conserved in free tumbling)
 %    - Reason: No external torque implies conserved H, validated by numerical precision.
 
-% 3. Iffect:
+% 3. Coupling Effect:
 %    dω_x/dt ∝ (J_yy - J_zz) * ω_y * ω_z / J_xx
 %    dω_y/dt ∝ (J_zz - J_xx) * ω_x * ω_z / J_yy
 %    dω_z/dt ∝ (J_xx - J_yy) * ω_x * ω_y / J_zz
@@ -37,12 +37,7 @@ omega0 = [0.5; 0.3; 0.8];
 % Time span (30 seconds to show oscillations)
 tspan = [0 30];
 
-% Dynamics function: Euler's equations for free tumbling (tau = 0)
-function dot_omega = free_dynamics(t, omega, J)
-    dot_omega = J \ (-cross(omega, J * omega));  % No external torque
-end
-
-% Ingh precision
+% High precision
 options = odeset('RelTol',1e-8, 'AbsTol',1e-10);
 [t, omega] = ode45(@(t, omega) free_dynamics(t, omega, J), tspan, omega0, options);
 
@@ -94,5 +89,11 @@ fprintf('Initial angular rates: [%.2f, %.2f, %.2f] rad/s\n', omega0(1), omega0(2
 fprintf('Final angular rates: [%.2f, %.2f, %.2f] rad/s\n', omega(end,1), omega(end,2), omega(end,3));
 fprintf('Mean |H|: %.6f kg·m²/s\n', mean(H_mag));
 fprintf('|H| variation: %.4f%%\n', H_variation_percent);
-fprintf('Kinetic energriation: %.4f%%\n', E_variation_percent);
+fprintf('Kinetic energy variation: %.4f%%\n', E_variation_percent);
 fprintf('No torque applied; variations due to numerical precision only.\n');
+
+%% Local Function
+% Dynamics function: Euler's equations for free tumbling (tau = 0)
+function dot_omega = free_dynamics(~, omega, J)
+    dot_omega = J \ (-cross(omega, J * omega));  % No external torque
+end
