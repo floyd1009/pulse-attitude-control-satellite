@@ -6,11 +6,13 @@ MATLAB simulation environment for the magnetic attitude control (detumbling) of 
 
 ## What's here
 
-| File | Purpose |
+All scripts live in [`simulation/matlab/`](simulation/matlab):
+
+| Script | Purpose |
 |---|---|
-| `simulation/matlab/free_tumbling_final.m` | Rigid-body tumbling dynamics of the 3P PocketQube |
-| `simulation/matlab/BDOT_ODE45.m` | Closed-loop B-dot detumbling with magnetorquer actuation (ODE45) |
-| `simulation/matlab/monte_carlo.m` | Monte Carlo dispersion analysis over initial tumble rates |
+| `free_tumbling_final.m` | Rigid-body tumbling dynamics of the 3P PocketQube |
+| `BDOT_ODE45.m` | Closed-loop B-dot detumbling with magnetorquer actuation (ODE45) |
+| `monte_carlo.m` | Monte Carlo dispersion analysis over initial tumble rates |
 
 ## Context
 
